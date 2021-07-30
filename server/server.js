@@ -5,8 +5,9 @@ const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schemas/index.js');
 const routes = require('./routes');
 const { authMiddleware } = require('./utils/auth');
+
 const app = express();
-const PORT = 3001;
+const PORT = 3001 || process.env.MONGODB_URI;
 
 const server = new ApolloServer({
   typeDefs,
